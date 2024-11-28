@@ -115,7 +115,7 @@ with tab1:
         st.write(f"The lowest value for **{y}** is **{data[y1].min()}**")
     with col4:
 
-        fig3 = rank_comparison(data, x = x1, y = y1)
+        fig3 = rank_comparison(data, x = x, y = y)
         st.plotly_chart(fig3)
 
     #Filter numeric columns
