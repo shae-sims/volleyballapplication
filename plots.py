@@ -42,5 +42,5 @@ def rank_comparison(data, x = "Rank", y = "Kills"):
     else:
         z = y
         
-    fig = px.scatter(data, x, z, title=f"Rank compared to {y}")
+    fig = px.scatter(data, x, z, title=f"Rank Compared to {y}")
     return fig

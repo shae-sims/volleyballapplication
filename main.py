@@ -14,5 +14,20 @@ data = pd.read_csv("data2023Clean.csv")
 
 st.title('Big 10 Volleyball Ranking Comparions 2023')
 
-fig1 = rank_comparison(data, y = "Blocks per Set")
-st.plotly_chart(fig1)
+tab1, tab2 = st.tabs(['Individual Players', 'By Rank'])
+
+with tab2:
+    df = data.drop(columns= 'Names')
+    correlation_matrix = df.corr().round(2)
+    fig2 = px.imshow(
+    correlation_matrix,
+    text_auto=True,  
+    color_continuous_scale="coolwarm", 
+    title="Correlation of Skills by Rank",
+    labels=dict(color="Correlation"),
+    )
+    st.plotly_chart(fig2)
+
+
+    fig1 = rank_comparison(data, y = "Blocks per Set")
+    st.plotly_chart(fig1)
