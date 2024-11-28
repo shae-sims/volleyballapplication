@@ -15,3 +15,4 @@ data = pd.read_csv("data2023Clean.csv")
 st.title('Big 10 Volleyball Ranking Comparions 2023')
 
 fig1 = rank_comparison(data, y = "Blocks per Set")
+st.plotly_chart(fig1)
