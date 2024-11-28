@@ -107,8 +107,7 @@ with tab1:
         correlation_matrix, 
         annot=True, 
         cmap='coolwarm', 
-        square=True, 
-        fmt=".2f"
+        square=True
     )
     plt.title('Correlation Heatmap')
 
