@@ -19,23 +19,25 @@ tab1, tab2 = st.tabs(['By Rank', 'Individual Players'])
 
 with tab1:
 
-    # # Filter numeric columns
-    # df = data.select_dtypes(include='number')
-    # correlation_matrix = df.corr().round(2)
+    #Filter numeric columns
+    df = data.select_dtypes(include='number')
+    correlation_matrix = df.corr().round(2)
 
-    # # Create a heatmap with Seaborn
-    # plt.figure(figsize=(8, 6))
-    # sns.heatmap(
-    #     correlation_matrix, 
-    #     annot=True, 
-    #     cmap='coolwarm', 
-    #     square=True, 
-    #     fmt=".2f"
-    # )
-    # plt.title('Correlation Heatmap')
+    # Create a heatmap with Seaborn
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(
+        correlation_matrix, 
+        annot=True, 
+        cmap='coolwarm', 
+        square=True, 
+        fmt=".2f"
+    )
+    plt.title('Correlation Heatmap')
 
-    # # Display the heatmap in Streamlit
-    # st.pyplot(plt)
+    # Display the heatmap in Streamlit
+    st.pyplot(plt)
+
+    
     col1, col2 = st.columns(2)
     with col1:
         skill = st.selectbox(
