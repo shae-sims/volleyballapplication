@@ -44,6 +44,8 @@ with tab1:
        'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
        'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
        'Aces per Set', 'Reception Percentage'))
+    
+    with col2:
 
-    fig1 = rank_comparison(data, y = skill)
-    st.plotly_chart(fig1)
+        fig1 = rank_comparison(data, y = skill)
+        st.plotly_chart(fig1)
