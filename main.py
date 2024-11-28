@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from plots import *
 import streamlit as st
-import random
+
 
 data = pd.read_csv("data2023Clean.csv").drop(columns = 'Unnamed: 0')
 

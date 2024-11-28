@@ -4,7 +4,7 @@ from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import random
+import numpy as np
 
 
 def get_right_name(var):
@@ -60,7 +60,7 @@ def barplot(data, cat = 'Name', quant = 'Kills', num = 5, direction = "First"):
     elif direction == 'All':
         part = data
     elif direction == 'Random':
-        indexes = random.sample(range(0, len(data)), num)
+        indexes = np.random.choice(range(0, len(data)), num)
         part = data.iloc[indexes]
     y = get_right_name(quant)
     fig = px.bar(part, x = cat, y = y, title = f'Players and {quant}')
