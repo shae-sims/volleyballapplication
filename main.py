@@ -15,13 +15,19 @@ data = pd.read_csv("data2023Clean.csv").drop(columns = 'Unnamed: 0')
 
 st.title('Big 10 Volleyball Ranking Comparions 2023')
 
-st.sidebar.title("Navigation")
-page = st.sidebar.selectbox("Select a Page", ["Introduction", "Graphics and Exploration"])
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "Introduction"
 
-if page == "Introduction":
+st.sidebar.title("Navigation")
+if st.sidebar.button("Introduction"):
+    st.session_state.current_page = "Introduction"
+if st.sidebar.button("Graphics and Exploration"):
+    st.session_state.current_page = "Graphics and Exploration"
+
+if st.session_state.current_page == "Introduction":
     st.header("This is the introduction page")
 
-elif page == "Graphics and Exploration":
+elif st.session_state.current_page == "Graphics and Exploration":
     tab1, tab2 = st.tabs(['Correlation', 'Individual Players'])
 
     with tab1:
