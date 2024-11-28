@@ -14,10 +14,10 @@ data = pd.read_csv("data2023Clean.csv")
 
 st.title('Big 10 Volleyball Ranking Comparions 2023')
 
-tab1, tab2 = st.tabs(['Individual Players', 'By Rank'])
+tab1, tab2 = st.tabs(['By Rank', 'Individual Players'])
 
-with tab2:
-    df = data.drop(columns= 'Names')
+with tab1:
+    df = data.select_dtypes(include='number')
     correlation_matrix = df.corr().round(2)
     fig2 = px.imshow(
     correlation_matrix,
