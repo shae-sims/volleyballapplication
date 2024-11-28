@@ -65,6 +65,23 @@ with tab1:
         
         cor = data['Rank'].corr(data[skill1]).round(2)
         st.write(f"The correlation between Rank and **{skill}** is **{cor}**.")
+
+        #Filter numeric columns
+        df = data.select_dtypes(include='number')
+        correlation_matrix = df.corr().round(1)
+
+        # Create a heatmap with Seaborn
+        plt.figure(figsize=(8, 6))
+        sns.heatmap(
+            correlation_matrix, 
+            annot=True, 
+            cmap='coolwarm', 
+            square=True
+        )
+        plt.title('Correlation Heatmap')
+
+        # Display the heatmap in Streamlit
+        st.pyplot(plt)
     
     with st.expander("Explanation of Skills"):
         st.write('''
