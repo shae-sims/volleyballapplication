@@ -10,6 +10,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from plots import *
 import streamlit as st
+import random
 
 data = pd.read_csv("data2023Clean.csv").drop(columns = 'Unnamed: 0')
 
@@ -145,4 +146,23 @@ elif st.session_state.current_page == "Graphics and Exploration":
 
         # Display the heatmap in Streamlit
         st.pyplot(plt)
+    
+    with tab2:
+        st.header('Individual Player Statistics')
+
+        col5, col6 = st.columns(2)
+        with col5:
+            number = st.text_input('Enter the number of Athletes you want to see: ')
+            st.write('*Between 1 and 205*')
+            direct = st.radio('Select if you want to see Highest Ranked, Lowest Ranked, or Random', ['Highest','Lowest','Random'])
+            var = st.selectbox(
+        "Which skill do you want to see?",
+        ('Games Played', 'Sets Played', 'Kills', 'Kills per Set',
+        'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
+        'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
+        'Aces per Set', 'Reception Percentage'))
+        
+        with col6:
+            fig5 = barplot(data, 'Name', var, number, direct)
+            st.plotly_chart(fig5)
 

@@ -4,6 +4,7 @@ from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import random
 
 
 def get_right_name(var):
@@ -50,3 +51,18 @@ def rank_comparison(data, x = "Rank", y = "Kills"):
         
     fig = px.scatter(data, d, z, title=f"{x} Compared to {y}")
     return fig
+
+def barplot(data, cat = 'Name', quant = 'Kills', num = 5, direction = "First"):
+    if direction == "Highest":
+        part = data.iloc[0:num]
+    elif direction == "Lowest":
+        part = data.iloc[-num::]
+    elif direction == 'All':
+        part = data
+    elif direction == 'Random':
+        indexes = random.sample(range(0, len(data)), num)
+        part = data.iloc[indexes]
+    y = get_right_name(quant)
+    fig = px.bar(part, x = cat, y = y, title = f'Players and {quant}')
+    return fig
+    
