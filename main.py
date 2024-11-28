@@ -44,6 +44,45 @@ with tab1:
        'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
        'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
        'Aces per Set', 'Reception Percentage'))
+        if skill == 'Blocks per Set':
+            skill1 = 'Blocks_Per_Set'
+        
+        elif skill == 'Games Played':
+            skill1 = 'Games_Played'
+
+        elif skill == 'Sets Played':
+            skill1 = 'Sets_Played'
+        
+        elif skill == 'Kills per Set':
+            skill1 = 'Kills_Per_Set'
+        
+        elif skill == 'Hitting Percentage':
+            skill1 = 'Hitting_Percentage'
+        
+        elif skill == 'Assists per Set':
+            skill1 ='Assists_Per_set'
+        
+        elif skill == 'Blocks per Set':
+            skill1 = 'Blocks_Per_Set'
+
+        elif skill == 'Digs per Set':
+            skill1 = 'Digs_Per_Set'
+        
+        elif skill == 'Service Aces':
+            skill1 = 'Service_Aces'
+
+        elif skill == 'Aces per Set':
+            skill1 = 'Service_Aces_Per_Set'
+
+        elif skill == 'Reception Percentage':
+            skill1 ='Reception_Percentage'
+        
+        else:
+            skill1 = skill
+        
+        cor = data['Rank'].corr(data[skill1]).round(2)
+        st.write(f"The correlation between Rank and **{skill}** is **{cor}**.")
+
     
     with col2:
 
