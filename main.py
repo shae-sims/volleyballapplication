@@ -18,14 +18,24 @@ st.title('Big 10 Volleyball Ranking Comparions 2023')
 tab1, tab2 = st.tabs(['By Rank', 'Individual Players'])
 
 with tab1:
-
+    # Filter numeric columns
     df = data.select_dtypes(include='number')
     correlation_matrix = df.corr().round(2)
 
+    # Create a heatmap with Seaborn
     plt.figure(figsize=(8, 6))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', square=True, fmt=".2f")
+    sns.heatmap(
+        correlation_matrix, 
+        annot=True, 
+        cmap='coolwarm', 
+        square=True, 
+        fmt=".2f"
+    )
     plt.title('Correlation Heatmap')
-    st.pyplot(plt)  
+
+    # Display the heatmap in Streamlit
+    st.pyplot(plt)
+
 
 
     fig1 = rank_comparison(data, y = "Blocks per Set")
