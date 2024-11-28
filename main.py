@@ -15,9 +15,48 @@ data = pd.read_csv("data2023Clean.csv").drop(columns = 'Unnamed: 0')
 
 st.title('Big 10 Volleyball Ranking Comparions 2023')
 
-tab1, tab2 = st.tabs(['By Rank', 'Individual Players'])
+def get_right_name(var):
+    if var == 'Blocks per Set':
+        return 'Blocks_Per_Set'
+        
+    elif var == 'Games Played':
+        return 'Games_Played'
+
+    elif var == 'Sets Played':
+        return 'Sets_Played'
+    
+    elif var == 'Kills per Set':
+        return 'Kills_Per_Set'
+    
+    elif var == 'Hitting Percentage':
+        return 'Hitting_Percentage'
+    
+    elif var == 'Assists per Set':
+        return 'Assists_Per_set'
+    
+    elif var == 'Blocks per Set':
+        return 'Blocks_Per_Set'
+
+    elif var == 'Digs per Set':
+        return'Digs_Per_Set'
+    
+    elif var == 'Service Aces':
+        return 'Service_Aces'
+
+    elif var == 'Aces per Set':
+        return 'Service_Aces_Per_Set'
+
+    elif var == 'Reception Percentage':
+        return 'Reception_Percentage'
+    
+    else:
+        return var
+
+
+tab1, tab2 = st.tabs(['Correlation', 'Individual Players'])
 
 with tab1:
+    st.header('Comparision of Different Variables and Rank')
 
     col1, col2 = st.columns(2)
     with col1:
@@ -27,42 +66,7 @@ with tab1:
        'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
        'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
        'Aces per Set', 'Reception Percentage'))
-        if skill == 'Blocks per Set':
-            skill1 = 'Blocks_Per_Set'
-        
-        elif skill == 'Games Played':
-            skill1 = 'Games_Played'
-
-        elif skill == 'Sets Played':
-            skill1 = 'Sets_Played'
-        
-        elif skill == 'Kills per Set':
-            skill1 = 'Kills_Per_Set'
-        
-        elif skill == 'Hitting Percentage':
-            skill1 = 'Hitting_Percentage'
-        
-        elif skill == 'Assists per Set':
-            skill1 ='Assists_Per_set'
-        
-        elif skill == 'Blocks per Set':
-            skill1 = 'Blocks_Per_Set'
-
-        elif skill == 'Digs per Set':
-            skill1 = 'Digs_Per_Set'
-        
-        elif skill == 'Service Aces':
-            skill1 = 'Service_Aces'
-
-        elif skill == 'Aces per Set':
-            skill1 = 'Service_Aces_Per_Set'
-
-        elif skill == 'Reception Percentage':
-            skill1 ='Reception_Percentage'
-        
-        else:
-            skill1 = skill
-        
+        skill1 = get_right_name(skill)
         cor = data['Rank'].corr(data[skill1]).round(2)
         st.write()
         st.write()
@@ -114,6 +118,42 @@ with tab1:
 
         fig1 = rank_comparison(data, y = skill)
         st.plotly_chart(fig1)
+
+    col3, col4 = st.columns(2)
+    with col3:
+        x = st.selectbox(
+    "Select two Variables to Compare to Each Other",
+    ('Games Played', 'Sets Played', 'Kills', 'Kills per Set',
+       'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
+       'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
+       'Aces per Set', 'Reception Percentage'))
+        
+        y = st.selectbox(
+    "Select two Variables to Compare to Each Other",
+    ('Games Played', 'Sets Played', 'Kills', 'Kills per Set',
+       'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
+       'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
+       'Aces per Set', 'Reception Percentage'))
+        
+        x1 = get_right_name(x)
+        y1 = get_right_name(y)
+        
+        cor = data[x1].corr(data[y1]).round(2)
+        st.write()
+        st.write()
+        st.write(f"The correlation between **{x}** and **{y}** is **{cor}**.")
+        st.write()
+        st.write(f"The highest value for **{x}** is **{data[x1].max()}**")
+        st.write()
+        st.write(f"The highest value for **{y}** is **{data[y1].max()}**")
+        st.write()
+        st.write(f"The lowest value for **{x}** is **{data[x1].min()}**")
+        st.write()
+        st.write(f"The lowest value for **{y}** is **{data[y1].min()}**")
+    with col4:
+
+        fig3 = rank_comparison(data, x = x1, y = y1)
+        st.plotly_chart(fig3)
 
     #Filter numeric columns
     df = data.select_dtypes(include='number')
