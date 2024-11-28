@@ -4,6 +4,7 @@ import zipfile
 import plotly.express as px
 import matplotlib.pyplot as plt
 import requests
+import seaborn as sns
 from io import BytesIO
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -18,8 +19,13 @@ tab1, tab2 = st.tabs(['By Rank', 'Individual Players'])
 
 with tab1:
 
-    fig2 = correlation_plot(data)
-    st.plotly_chart(fig2)
+    df = data.select_dtypes(include='number')
+    correlation_matrix = df.corr().round(2)
+
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', square=True, fmt=".2f")
+    plt.title('Correlation Heatmap')
+    st.pyplot(plt)  
 
 
     fig1 = rank_comparison(data, y = "Blocks per Set")
