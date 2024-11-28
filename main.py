@@ -11,7 +11,7 @@ from plotly.subplots import make_subplots
 from plots import *
 import streamlit as st
 
-data = pd.read_csv("data2023Clean.csv")
+data = pd.read_csv("data2023Clean.csv").drop(columns = 'Unnamed: 0')
 
 st.title('Big 10 Volleyball Ranking Comparions 2023')
 
@@ -37,7 +37,7 @@ with tab1:
     # Display the heatmap in Streamlit
     st.pyplot(plt)
 
-    
+
     col1, col2 = st.columns(2)
     with col1:
         skill = st.selectbox(
