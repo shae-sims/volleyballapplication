@@ -72,13 +72,13 @@ with tab1:
         highest = data[data[skill1] == data[skill1].max()]
         ranks = highest['Rank'].tolist()
         name = highest['Name'].tolist()
-        st.write(f"At rank {ranks}")
-        st.write(f"By player(s): {name}")
+        st.write(f"At rank(s): {ranks.join(',')}")
+        st.write(f"By player(s): {name.join(',')}")
         st.write()
         st.write(f"The lowest value for **{skill}** is **{data[skill1].min()}**")
         lowest = data[data[skill1] == data[skill1].min()]
         ranksl = lowest['Rank'].tolist()
-        st.write(f"At rank {ranksl[0]}")
+        st.write(f"At rank(s): {ranksl.join(',')}")
 
 
 
