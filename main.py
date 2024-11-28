@@ -128,8 +128,7 @@ with tab1:
        'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
        'Aces per Set', 'Reception Percentage'))
         
-        y = st.selectbox(
-    "Select two Variables to Compare to Each Other",
+        y = st.selectbox("",
     ('Games Played', 'Sets Played', 'Kills', 'Kills per Set',
        'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
        'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
