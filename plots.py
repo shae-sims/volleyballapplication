@@ -6,42 +6,47 @@ import pandas as pd
 import seaborn as sns
 
 
-def rank_comparison(data, x = "Rank", y = "Kills"):
-    if y == 'Blocks per Set':
-        z = 'Blocks_Per_Set'
-    
-    elif y == 'Games Played':
-        z = 'Games_Played'
+def get_right_name(var):
+    if var == 'Blocks per Set':
+        return 'Blocks_Per_Set'
+        
+    elif var == 'Games Played':
+        return 'Games_Played'
 
-    elif y == 'Sets Played':
-        z = 'Sets_Played'
+    elif var == 'Sets Played':
+        return 'Sets_Played'
     
-    elif y == 'Kills per Set':
-        z = 'Kills_Per_Set'
+    elif var == 'Kills per Set':
+        return 'Kills_Per_Set'
     
-    elif y == 'Hitting Percentage':
-       z = 'Hitting_Percentage'
+    elif var == 'Hitting Percentage':
+        return 'Hitting_Percentage'
     
-    elif y == 'Assists per Set':
-        z ='Assists_Per_set'
+    elif var == 'Assists per Set':
+        return 'Assists_Per_set'
     
-    elif y == 'Blocks per Set':
-        z = 'Blocks_Per_Set'
+    elif var == 'Blocks per Set':
+        return 'Blocks_Per_Set'
 
-    elif y == 'Digs per Set':
-        z = 'Digs_Per_Set'
+    elif var == 'Digs per Set':
+        return'Digs_Per_Set'
     
-    elif y == 'Service Aces':
-        z = 'Service_Aces'
+    elif var == 'Service Aces':
+        return 'Service_Aces'
 
-    elif y == 'Aces per Set':
-        z = 'Service_Aces_Per_Set'
+    elif var == 'Aces per Set':
+        return 'Service_Aces_Per_Set'
 
-    elif y == 'Reception Percentage':
-        z ='Reception_Percentage'
+    elif var == 'Reception Percentage':
+        return 'Reception_Percentage'
     
     else:
-        z = y
+        return var
+
+
+def rank_comparison(data, x = "Rank", y = "Kills"):
+    z = get_right_name(y)
+    d = get_right_name(x)
         
-    fig = px.scatter(data, x, z, title=f"Rank Compared to {y}")
+    fig = px.scatter(data, d, z, title=f"{x} Compared to {y}")
     return fig
