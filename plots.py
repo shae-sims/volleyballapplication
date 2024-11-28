@@ -49,11 +49,13 @@ def rank_comparison(data, x = "Rank", y = "Kills"):
 def correlation_plot(data):
     data = data.select_dtypes(include='number')
     correlation_matrix = data.corr().round(2)
+    correlation_matrix = correlation_matrix.fillna(0)
+
     fig2 = px.imshow(
-    correlation_matrix,
-    text_auto=True,  
-    color_continuous_scale="coolwarm", 
-    title="Correlation of Skills by Rank",
-    labels=dict(color="Correlation"),
+        correlation_matrix,
+        text_auto=True,
+        color_continuous_scale="RdBu",
+        title="Correlation of Skills by Rank",
+        labels=dict(color="Correlation")
     )
     return fig2
