@@ -52,7 +52,7 @@ def rank_comparison(data, x = "Rank", y = "Kills"):
     fig = px.scatter(data, d, z, title=f"{x} Compared to {y}")
     return fig
 
-def barplot(data, cat = 'Name', quant = 'Kills', num = 5, direction = "First"):
+def barplot(data, cat = 'Name', quant = 'Kills', num = 5, direction = "Highest"):
     if direction == "Highest":
         part = data.iloc[0:num]
     elif direction == "Lowest":
