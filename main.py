@@ -64,24 +64,23 @@ with tab1:
             skill1 = skill
         
         cor = data['Rank'].corr(data[skill1]).round(2)
+        st.write()
+        st.write()
         st.write(f"The correlation between Rank and **{skill}** is **{cor}**.")
+        st.write()
+        st.write(f"The highest value for **{skill}** is **{data[skill1].max}**")
+        highest = data[data[skill1] == data[skill1].max]
+        ranks = highest['Rank']
+        st.write(f"At the rank(s) of {ranks}")
+        st.write()
+        st.write(f"The lowest value for **{skill}** is **{data[skill1].min}**")
+        lowest = data[data[skill1] == data[skill1].min]
+        ranksl = lowest['Rank']
+        st.write(f"At the rank(s) of {ranksl}")
 
-        #Filter numeric columns
-        df = data.select_dtypes(include='number')
-        correlation_matrix = df.corr().round(1)
 
-        # Create a heatmap with Seaborn
-        plt.figure(figsize=(8, 6))
-        sns.heatmap(
-            correlation_matrix, 
-            annot=True, 
-            cmap='coolwarm', 
-            square=True
-        )
-        plt.title('Correlation Heatmap')
 
-        # Display the heatmap in Streamlit
-        st.pyplot(plt)
+
     
     with st.expander("Explanation of Skills"):
         st.write('''
