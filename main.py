@@ -152,7 +152,14 @@ elif st.session_state.current_page == "Graphics and Exploration":
 
         col5, col6 = st.columns(2)
         with col5:
-            number = st.text_input('Enter the number of Athletes you want to see: ')
+            try:
+                number = int(st.text_input('Enter the number of Athletes you want to see: ', value="5"))  # Default to 5
+                if number <= 0 or number > 205:
+                    st.error("Please enter a number between 1 and 205.")
+                    st.stop()
+            except ValueError:
+                st.error("Please enter a valid number.")
+                st.stop()
             st.write('*Between 1 and 205*')
             direct = st.radio('Select if you want to see Highest Ranked, Lowest Ranked, or Random', ['Highest','Lowest','Random'])
             var = st.selectbox(
