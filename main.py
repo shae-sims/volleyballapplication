@@ -26,8 +26,13 @@ if st.sidebar.button("Graphics and Exploration"):
     st.session_state.current_page = "Graphics and Exploration"
 
 if st.session_state.current_page == "Introduction":
-    st.header("This is the introduction page")
-
+    st.header("Introduction")
+    st.subheader('This App')
+    st.write('This app is designed to help you explore volleyball data. It looks into how player rankings are decided and compares different players to each other')
+    st.write('The next page of this application has two tabs. One to look...')
+    st.subheader("The Data")
+    st.write('This application is made using data found from the Big 10 collegiate volleyball conference. They are ranked based off of different skills that they perform throughout volleyball games')
+    
 elif st.session_state.current_page == "Graphics and Exploration":
     tab1, tab2 = st.tabs(['Correlation', 'Individual Players'])
 
