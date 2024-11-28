@@ -17,15 +17,8 @@ st.title('Big 10 Volleyball Ranking Comparions 2023')
 tab1, tab2 = st.tabs(['By Rank', 'Individual Players'])
 
 with tab1:
-    df = data.select_dtypes(include='number')
-    correlation_matrix = df.corr().round(2)
-    fig2 = px.imshow(
-    correlation_matrix,
-    text_auto=True,  
-    color_continuous_scale="coolwarm", 
-    title="Correlation of Skills by Rank",
-    labels=dict(color="Correlation"),
-    )
+
+    fig2 = correlation_plot(data)
     st.plotly_chart(fig2)
 
 
