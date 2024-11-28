@@ -38,6 +38,9 @@ with tab1:
     # st.pyplot(plt)
 
     input_skill = st.radio('Select a Skill',[3,5,10])
+    st.selectbox(
+    "What Gender?",
+    ("Male", "Female", "Both"))
 
     fig1 = rank_comparison(data, y = "Blocks per Set")
     st.plotly_chart(fig1)
