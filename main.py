@@ -99,7 +99,7 @@ with tab1:
 
     #Filter numeric columns
     df = data.select_dtypes(include='number')
-    correlation_matrix = df.corr().round(1)
+    correlation_matrix = df.corr().round(2)
 
     # Create a heatmap with Seaborn
     plt.figure(figsize=(8, 6))
