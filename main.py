@@ -36,11 +36,14 @@ with tab1:
 
     # # Display the heatmap in Streamlit
     # st.pyplot(plt)
+    col1, col2 = st.columns(2)
+    with col1:
+        skill = st.selectbox(
+    "Select a Skill to Compare with Rank",
+    ('Games Played', 'Sets Played', 'Kills', 'Kills per Set',
+       'Hitting Percentage', 'Assists', 'Assists per Set', 'Blocks',
+       'Blocks per Set', 'Digs', 'Digs per Set', 'Service Aces',
+       'Aces per Set', 'Reception Percentage'))
 
-    input_skill = st.radio('Select a Skill',[3,5,10])
-    st.selectbox(
-    "What Gender?",
-    ("Male", "Female", "Both"))
-
-    fig1 = rank_comparison(data, y = "Blocks per Set")
+    fig1 = rank_comparison(data, y = skill)
     st.plotly_chart(fig1)
