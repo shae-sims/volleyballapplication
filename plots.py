@@ -64,5 +64,5 @@ def barplot(data, cat = 'Name', quant = 'Kills', num = 5, direction = "Highest")
         part = data.iloc[indexes]
     y = get_right_name(quant)
     fig = px.bar(part, x = cat, y = y, title = f'Players and {quant}')
-    return fig
+    return fig, part
     

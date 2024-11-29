@@ -29,7 +29,9 @@ if st.session_state.current_page == "Introduction":
     st.header("Introduction")
     st.subheader('This App')
     st.write('This app is designed to help you explore volleyball data. It looks into how player rankings are decided and compares different players to each other')
-    st.write('The next page of this application has two tabs. One to look...')
+    st.write('The next page of this application has two tabs. The first looks at the correlation of different skills in the game of volleyball compared to rank, and compared to each other.')
+    st.write('The other tab has players stats that you can compare. The graph will display the highest ranked players, the lowest ranked players, and random list of players to compare their skills. There is also a table displaying all the players names in order of ranking.')
+    st.write('For each graph, except the correlation matrix on the bottom of the first tab, the user can pick which skills are being displayed. Some graphs allow more user input to see what you can discover.')
     st.subheader("The Data")
     st.write('This application is made using data found from the Big 10 collegiate volleyball conference. They are ranked based off of different skills that they perform throughout volleyball games')
     
@@ -175,8 +177,10 @@ elif st.session_state.current_page == "Graphics and Exploration":
         'Aces per Set', 'Reception Percentage'))
         
         with col6:
-            fig5 = barplot(data, 'Name', var, number, direct)
+            fig5, sortdata = barplot(data, 'Name', var, number, direct)
             st.plotly_chart(fig5)
+
+        st.table(sortdata)
 
         with st.expander("Explanation of Skills"):
             st.write('''
