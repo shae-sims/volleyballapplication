@@ -179,7 +179,7 @@ elif st.session_state.current_page == "Graphics and Exploration":
         with col6:
             fig5, sortdata = barplot(data, 'Name', var, number, direct)
             st.plotly_chart(fig5)
-        st.table(sortdata)
+        st.table(sortdata.reset_index(drop=True))
 
         with st.expander("Explanation of Skills"):
             st.write('''
