@@ -50,22 +50,38 @@ if st.session_state.current_page == "Introduction":
     #### The Data Behind the App
     This application uses data from the Big 10 colliegiate volleyball conference. It has information on players rank based of off important skills
     The information you will find on each player are:
-        1. Rank: How th player is ranked in comparison to all other athletes in the Big 10, 1 being the highest rank.
-        2. Name: The name of the athlete
-        3. Games Played: The number of games played by an athlete each game is made up of 3-5 sets. Teams must win 3 sets to win a game.
-        4. Sets Played:	The number of sets played by an athlete. Sets are played to 25 and you must win by 2 points. If a fifth set is necessary it is played to 15.
-        5. Kills: An offensive attack on a ball that results in a point to the team that hit it. This is the total amount of kills for that player
-        6. Kills per Set: The number of kills per set player
-        7. Hitting Percentage: A score given to an athlete from -1 to 1. 1 meaning they always hit kills, -1 meaning they only hit errors (meaning it results in points for the other team)
-        8. Assists: An overhand touch on the ball that results in a hitter getting a kill. The total amount for all the games.
-        9. Assists per Set: The number of assists per set played
-        10.	Blocks: A defensive move that is when a player jumps up at the net to stop an opposing player from hitting the ball over.
-        11.	Blocks per Set: The number of blocks per set played.
-        12.	Digs: Passing a hard driven ball successfully.
-        13.	Digs per Set: The number of Digs per set played
-        14.	Service Aces(Aces): When a player serves a ball over the net and it results in a point.
-        15.	Service Aces per Set: The number of aces per set player
-        16.	Reception Percentage: The percentage of good receptions a player has compared to the total amount of receptions.
+    1. Rank: 
+        How th player is ranked in comparison to all other athletes in the Big 10, 1 being the highest rank.
+    2. Name: 
+        The name of the athlete
+    3. Games Played: 
+        The number of games played by an athlete each game is made up of 3-5 sets. Teams must win 3 sets to win a game.
+    4. Sets Played:	
+        The number of sets played by an athlete. Sets are played to 25 and you must win by 2 points. If a fifth set is necessary it is played to 15.
+    5. Kills: 
+        An offensive attack on a ball that results in a point to the team that hit it. This is the total amount of kills for that player
+    6. Kills per Set: 
+        The number of kills per set player
+    7. Hitting Percentage: 
+        A score given to an athlete from -1 to 1. 1 meaning they always hit kills, -1 meaning they only hit errors (meaning it results in points for the other team)
+    8. Assists: 
+        An overhand touch on the ball that results in a hitter getting a kill. The total amount for all the games.
+    9. Assists per Set: 
+        The number of assists per set played
+    10.	Blocks: 
+        A defensive move that is when a player jumps up at the net to stop an opposing player from hitting the ball over.
+    11.	Blocks per Set:     
+        The number of blocks per set played.
+    12.	Digs: 
+        Passing a hard driven ball successfully.
+    13.	Digs per Set: 
+        The number of Digs per set played
+    14.	Service Aces(Aces): 
+        When a player serves a ball over the net and it results in a point.
+    15.	Service Aces per Set: 
+        The number of aces per set player
+    16.	Reception Percentage: 
+        The percentage of good receptions a player has compared to the total amount of receptions.
     """)
     st.markdown("""
     #### Ready, Set, GO!
